@@ -850,35 +850,80 @@ section {
 .project-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.88);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: var(--spacing-sm);
     opacity: 0;
     transition: opacity var(--transition-base);
+    padding: var(--spacing-md);
 }
 
 .project-card:hover .project-overlay {
     opacity: 1;
 }
 
+/* Row of store/link icon buttons */
+.project-links-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .project-link {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient-primary);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-full);
     color: var(--text-primary);
-    font-size: var(--font-size-xl);
+    font-size: 1.15rem;
     text-decoration: none;
     transition: all var(--transition-base);
+    backdrop-filter: blur(4px);
+}
+
+/* Primary/default link — highlighted */
+.project-link.primary {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    width: 54px;
+    height: 54px;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
 .project-link:hover {
-    transform: scale(1.1);
+    transform: scale(1.15) translateY(-2px);
     box-shadow: var(--shadow-glow);
+    background: var(--gradient-primary);
+    border-color: transparent;
+}
+
+/* Store label tooltip on hover */
+.project-link[aria-label]:hover::after {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.95);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.project-link {
+    position: relative;
 }
 
 .project-info {
