@@ -1,5 +1,5 @@
 // Typing Effect
-const typingTexts = ['Senior Software Engineer', 'Flutter & Mobile Expert', 'Full-Stack Developer', 'Agentic AI Pioneer'];
+const typingTexts = ['Senior Software Engineer', 'Full-Stack Developer', 'Flutter & Mobile Expert', 'Agentic AI Pioneer', 'Prompt Engineer'];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
